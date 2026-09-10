@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { databaseConfig } from './config/database.config';
-// import { AuthModule } from './auth/auth.module';
 // import { UploadsModule } from './uploads/uploads.module';
 import { ProductsModule } from './products/products.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -17,6 +17,7 @@ import { ProductsModule } from './products/products.module';
       useFactory: (config: ConfigService) => databaseConfig(config),
     }),
     ProductsModule,
+    AuthModule,
     /** ProductsModule,
  AuthModule,
  UploadsModule, **/

@@ -7,15 +7,18 @@ import {
   ParseIntPipe,
   Patch,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { JwtGuard } from 'src/common/guards/jwt.guard';
 
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
+  @UseGuards(JwtGuard)
   @Post() // http://localhost:3000/products -- POST
   crearProducto(@Body() dto: CreateProductDto) {
     return this.productsService.create(dto);
@@ -37,12 +40,13 @@ export class ProductsController {
     // y responde 400 automáticamente si alguien manda algo que no es un número
     return this.productsService.getOneProducto(id);
   }
-  // @UseGuards(JwtGuard)
+  @UseGuards(JwtGuard)
   @Patch(':id') // http://localhost:3000/products/1520 - PATCH
   update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateProductDto) {
     return this.productsService.update(id, dto);
   }
-  // @UseGuards(JwtGuard)
+
+  @UseGuards(JwtGuard)
   @Delete(':id') // http://localhost:3000/products/1520 - DELETE
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.productsService.eliminarProducto(id);
