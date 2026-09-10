@@ -1,10 +1,25 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { databaseConfig } from './config/database.config';
+// import { AuthModule } from './auth/auth.module';
+// import { UploadsModule } from './uploads/uploads.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    // Carga el .env y lo deja disponible en toda la app (isGlobal: true)
+    ConfigModule.forRoot({ isGlobal: true }),
+    // forRootAsync: espera a que ConfigModule esté listo antes de armar la conexión a MySQL
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => databaseConfig(config),
+    }),
+    ProductsModule,
+    /** ProductsModule,
+ AuthModule,
+ UploadsModule, **/
+  ],
 })
 export class AppModule {}

@@ -1,0 +1,36 @@
+@baseUrl = http://localhost:3000
+
+
+###
+GET {{baseUrl}}/products
+
+### GET ONE
+GET {{baseUrl}}/products/8
+
+###
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Producto 1",
+  "price": 0,
+  "stock": 0,
+  "categoryId": 1
+}
+
+###
+PATCH {{baseUrl}}/products/8
+Content-Type: application/json
+
+{
+  "name": "Producto 1 - Updated",
+  "price": 100,
+  "stock": 10,
+  "categoryId": 2
+}
+
+###
+DELETE {{baseUrl}}/products/7
+
+### Test Ruta 2
+POST {{baseUrl}}/products/ruta2
