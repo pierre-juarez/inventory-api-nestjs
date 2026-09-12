@@ -53,3 +53,26 @@ Content-Type: application/json
   "email": "test@test.com",
   "password": "123456"
 }
+
+### Get Files
+GET {{baseUrl}}/uploads
+
+
+### Get File by Name
+GET {{baseUrl}}/uploads/test.png
+
+### Upload File
+POST {{baseUrl}}/uploads
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=----Boundary
+
+------Boundary
+Content-Disposition: form-data; name="file"; filename="icon.svg"
+Content-Type: image/svg
+
+< ./icon.svg
+------Boundary
+Content-Disposition: form-data; name="namefileParam"
+
+icon
+------Boundary--

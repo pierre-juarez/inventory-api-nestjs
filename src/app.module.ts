@@ -5,6 +5,7 @@ import { databaseConfig } from './config/database.config';
 // import { UploadsModule } from './uploads/uploads.module';
 import { ProductsModule } from './products/products.module';
 import { AuthModule } from './auth/auth.module';
+import { UploadsModule } from './uploads/uploads.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     ProductsModule,
     AuthModule,
+    UploadsModule,
     /** ProductsModule,
  AuthModule,
  UploadsModule, **/

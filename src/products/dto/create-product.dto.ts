@@ -11,11 +11,11 @@ export class CreateProductDto {
   name!: string;
   @IsNumber()
   @IsPositive() // el precio debe ser mayor a 0
-  price: number = 0;
+  price!: number;
   @IsNumber()
   @Min(0) // el stock no puede ser negativo
-  stock: number = 0;
+  stock!: number;
   @IsNumber()
   @Min(0)
-  categoryId: number = 0; // a qué categoría pertenece el producto
+  categoryId!: number; // a qué categoría pertenece el producto
 }
