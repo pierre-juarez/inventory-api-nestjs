@@ -45,6 +45,6 @@ export class AuthService {
       throw new UnauthorizedException('Contraseña incorrecta.');
     }
     const payload = { sub: usuario.id, email: usuario.email };
-    return { accessToken: this.jwtService.sign(payload) }; // firma y genera el JWT
+    return { accessToken: this.jwtService.sign(payload) }; // firma y genera el JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJpYXQiOjE2MTYyMzkwMjIsImV4cCI6MT
   }
 }

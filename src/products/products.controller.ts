@@ -29,6 +29,7 @@ export class ProductsController {
     return this.productsService.getProductsRaw();
   }
 
+  @UseGuards(JwtGuard)
   @Get() // GET /products — pública, cualquiera puede listar, // http://localhost:3000/products -- GET
   findAll() {
     return this.productsService.getProductosAll();
