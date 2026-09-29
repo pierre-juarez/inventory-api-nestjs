@@ -1,11 +1,11 @@
 @baseUrl = http://localhost:3000
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc4OTAyNTI2OSwiZXhwIjoxNzg5MDMyNDY5fQ.y1pe1apOJZArThlhaLsY_LtFXUDhJGHiyDkDB1jht00
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc5MDY2MjA2MCwiZXhwIjoxNzkwNjY5MjYwfQ.QHnaPgzAcMHFjdfy7iNf9Qskxn6yBEEDhCN8iHos-8E
 
 ###
 GET {{baseUrl}}/products
 
 ### GET ONE
-GET {{baseUrl}}/products/8
+GET {{baseUrl}}/products/16
 
 ###
 POST {{baseUrl}}/products
@@ -13,19 +13,19 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "Producto 1",
+  "name": "",
   "price": 0,
   "stock": 0,
   "categoryId": 1
 }
 
 ###
-PATCH {{baseUrl}}/products/8
+PATCH {{baseUrl}}/products/16
 Content-Type: application/json
 
 {
-  "name": "Producto 1 - Updated",
-  "price": 100,
+  "name": "Producto 16 - Updated",
+  "price": 25.46,
   "stock": 10,
   "categoryId": 2
 }

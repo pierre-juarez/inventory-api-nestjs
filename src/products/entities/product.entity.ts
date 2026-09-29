@@ -12,7 +12,16 @@ export class Product {
   id!: number;
   @Column({ name: 'NOMBRE', type: 'varchar', length: 100, nullable: false })
   name!: string;
-  @Column({ name: 'PRECIO', type: 'decimal', precision: 10, scale: 2 })
+  @Column({
+    name: 'PRECIO',
+    type: 'decimal',
+    precision: 10,
+    scale: 2,
+    transformer: {
+      to: (value: number) => value,
+      from: (value: string) => parseFloat(value),
+    },
+  })
   price: number = 0;
   @Column({ name: 'STOCK', type: 'int' })
   stock: number = 0;

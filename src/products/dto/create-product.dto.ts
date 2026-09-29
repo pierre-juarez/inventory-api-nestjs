@@ -9,7 +9,7 @@ import {
 export class CreateProductDto {
   @ApiProperty({ example: 'Laptop HP 15"' })
   @IsString()
-  @IsNotEmpty() // no permite un string vacío ""
+  @IsNotEmpty({ message: 'Ingresa un producto válido' }) // no permite un string vacío ""
   name!: string;
   @ApiProperty({ example: 899.99, description: 'Debe ser mayor a 0' })
   @IsNumber()
